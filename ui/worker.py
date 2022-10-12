@@ -6,6 +6,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 import openpyxl
+from main.adxParser import adxPareser
 import pandas as pd
 import numpy as np
 
@@ -39,8 +40,10 @@ class MainData(QWidget):
         sheet = wb.active
         wb2.active = 0
         sheet2 = wb2.active
-        str1 = str(sheet2['AD176'].value)
         str2 = str(sheet['B3'].value)
+        # adxPareser.get_main_adx_data()
+        parser = adxPareser.print_main_data(self)
+        str1 = str(parser[0]) + " / " + str(parser[1])
 
         self.company_name = QLineEdit("ADX", self.leftFrame)
         self.company_name.setReadOnly(True)
@@ -52,10 +55,10 @@ class MainData(QWidget):
 
         self.company_name2 = QLineEdit(str1, self.leftFrame)
         self.company_name2.setReadOnly(True)
-        self.company_name2.setGeometry(20, 70, 150, 60)
+        self.company_name2.setGeometry(20, 70, 250, 60)
         self.company_name2.setFrame(False)
         font = QFont()
-        font.setPointSize(22)
+        font.setPointSize(15)
         self.company_name2.setFont(font)
 
         # self.add_btn = QPushButton("Добавить...", self.rightFrame)
