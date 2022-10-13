@@ -2,7 +2,7 @@ import sys
 from main.AdxParser import AdxParser
 from main.DfmParser import DfmParser
 from PyQt5.QtWidgets import *
-from ui.main import Menu
+from ui.menu import Menu
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
@@ -12,6 +12,5 @@ if __name__ == '__main__':
     ex.move(QApplication.desktop().screen().rect().center() - ex.rect().center())
     ex.show()
     sys.exit(app.exec_())
-    # parser = DfmParser()
-    # parser.get_main_dfm_data()
-    # parser.print_main_data()
+    # parser = AdxParser()
+    # parser.collect_all_adx_data()

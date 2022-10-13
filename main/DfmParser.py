@@ -1,3 +1,4 @@
+import csv
 import time
 from bs4 import BeautifulSoup
 from selenium import webdriver
@@ -38,6 +39,12 @@ class DfmParser:
         part = soup.find("div", class_="status-figures")
         index = part.find("span", class_="change-value market increase index").text
         percent = part.find("span", class_="changepercentage").text
+
+        with open("data.csv", "a") as file:
+            writer = csv.writer(file)
+            writer.writerow(
+                [index, percent]
+            )
 
         # print(index, percent)
         return index, percent
