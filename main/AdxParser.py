@@ -2,7 +2,8 @@ import time
 from bs4 import BeautifulSoup
 from selenium import webdriver
 
-class adxPareser():
+
+class AdxParser:
     URL_main = "https://www.adx.ae/english/Pages/marketwatch.aspx?isdlg=1"
     options = webdriver.ChromeOptions()
     # options.add_argument("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
